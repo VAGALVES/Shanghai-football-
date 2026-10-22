@@ -5,7 +5,7 @@
    • Fontes, ícones e manifest: cache primeiro (nunca mudam sem trocar de nome).
    • Para forçar renovação dos arquivos estáticos, aumente VERSION.
    ===================================================================== */
-const VERSION = "1.0.0";
+const VERSION = "1.0.1";
 const CACHE   = "fb3-" + VERSION;
 const SCOPE   = self.registration.scope;
 const INDEX   = new URL("./index.html", SCOPE).href;
@@ -14,20 +14,20 @@ const PRECACHE = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
-  "./icons/favicon.svg",
-  "./icons/favicon-32.png",
-  "./icons/icon-192.png",
-  "./icons/icon-512.png",
-  "./icons/icon-maskable-512.png",
-  "./icons/apple-touch-icon.png",
-  "./fonts/barlow-latin-400-normal.woff2",
-  "./fonts/barlow-latin-ext-400-normal.woff2",
-  "./fonts/barlow-latin-600-normal.woff2",
-  "./fonts/barlow-latin-ext-600-normal.woff2",
-  "./fonts/barlow-condensed-latin-600-normal.woff2",
-  "./fonts/barlow-condensed-latin-ext-600-normal.woff2",
-  "./fonts/barlow-condensed-latin-800-normal.woff2",
-  "./fonts/barlow-condensed-latin-ext-800-normal.woff2"
+  "./favicon.svg",
+  "./favicon-32.png",
+  "./icon-192.png",
+  "./icon-512.png",
+  "./icon-maskable-512.png",
+  "./apple-touch-icon.png",
+  "./barlow-latin-400-normal.woff2",
+  "./barlow-latin-ext-400-normal.woff2",
+  "./barlow-latin-600-normal.woff2",
+  "./barlow-latin-ext-600-normal.woff2",
+  "./barlow-condensed-latin-600-normal.woff2",
+  "./barlow-condensed-latin-ext-600-normal.woff2",
+  "./barlow-condensed-latin-800-normal.woff2",
+  "./barlow-condensed-latin-ext-800-normal.woff2"
 ];
 
 self.addEventListener("install", event => {
