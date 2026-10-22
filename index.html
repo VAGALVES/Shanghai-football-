@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="auto">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Football Trilíngue</title>
+<meta name="description" content="Vocabulário e frases de futebol em português, chinês e inglês britânico, com áudio. Funciona offline.">
+<meta name="theme-color" id="themeColor" content="#0b1d13">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Football 3L">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preload" href="fonts/barlow-condensed-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<script>
+/* Aplica o tema salvo antes da primeira pintura (evita piscar claro/escuro) */
+try{ var t=localStorage.getItem("fb3_theme"); if(t==="light"||t==="dark") document.documentElement.dataset.theme=t; }catch(e){}
+</script>
+
+<style>
+/* ================= FONTES (locais, funcionam offline) ================= */
+@font-face{font-family:"Barlow";font-weight:400;font-style:normal;font-display:swap;
+  src:url(fonts/barlow-latin-ext-400-normal.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Barlow";font-weight:400;font-style:normal;font-display:swap;
+  src:url(fonts/barlow-latin-400-normal.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Barlow";font-weight:600;font-style:normal;font-display:swap;
+  src:url(fonts/barlow-latin-ext-600-normal.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Barlow";font-weight:600;font-style:normal;font-display:swap;
+  src:url(fonts/barlow-latin-600-normal.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Barlow Condensed";font-weight:600;font-style:normal;font-display:swap;
+  src:url(fonts/barlow-condensed-latin-ext-600-normal.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Barlow Condensed";font-weight:600;font-style:normal;font-display:swap;
+  src:url(fonts/barlow-condensed-latin-600-normal.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Barlow Condensed";font-weight:800;font-style:normal;font-display:swap;
+  src:url(fonts/barlow-condensed-latin-ext-800-normal.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Barlow Condensed";font-weight:800;font-style:normal;font-display:swap;
+  src:url(fonts/barlow-condensed-latin-800-normal.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+/* ================= TOKENS =================
+   Gramado à noite (escuro) / giz sobre papel (claro).
+   Cada idioma tem uma cor fixa em todo o app: PT sálvia, 中文 ouro, EN azul-céu. */
+:root{
+  color-scheme:dark;
+  --bg:#0b1d13; --bg-glass:rgba(11,29,19,.86);
+  --surface:#112a1b; --raise:#183a27;
+  --ink:#eef3e8; --dim:#a9c1b2;
+  --line:rgba(238,243,232,.15); --line-strong:rgba(238,243,232,.3);
+  --pt:#a9c1b2; --zh:#f4c95d; --en:#8cc8ff;
+  --go:#46d98a; --on-go:#05180d;
+  --chalk:#eef3e8; --on-chalk:#0b1d13;
+  --warn:#ff9a8a;
+  --fav:#f4c95d;
+  --font-ui:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-display:"Barlow Condensed","Barlow",system-ui,sans-serif;
+  --font-zh:"PingFang SC","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,sans-serif;
+  --hh:150px;
+}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#eef2e6; --bg-glass:rgba(238,242,230,.88);
+  --surface:#fbfcf7; --raise:#e3ebdb;
+  --ink:#0f2a1b; --dim:#4b6b58;
+  --line:rgba(15,42,27,.16); --line-strong:rgba(15,42,27,.34);
+  --pt:#4b6b58; --zh:#8a5d00; --en:#0f5c99;
+  --go:#0f7a45; --on-go:#ffffff;
+  --chalk:#0f2a1b; --on-chalk:#eef2e6;
+  --warn:#b3321f;
+  --fav:#c48a00;
+}
+@media (prefers-color-scheme:light){
+  :root[data-theme="auto"]{
+    color-scheme:light;
+    --bg:#eef2e6; --bg-glass:rgba(238,242,230,.88);
+    --surface:#fbfcf7; --raise:#e3ebdb;
+    --ink:#0f2a1b; --dim:#4b6b58;
+    --line:rgba(15,42,27,.16); --line-strong:rgba(15,42,27,.34);
+    --pt:#4b6b58; --zh:#8a5d00; --en:#0f5c99;
+    --go:#0f7a45; --on-go:#ffffff;
+    --chalk:#0f2a1b; --on-chalk:#eef2e6;
+    --warn:#b3321f;
+    --fav:#c48a00;
+  }
+}
+
+/* ================= BASE ================= */
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.4 var(--font-ui);
+  padding-bottom:calc(96px + env(safe-area-inset-bottom));
+  overscroll-behavior-y:none}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--go);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+svg{display:block}
+.wrap{max-width:640px;margin:0 auto}
+
+/* ================= CABEÇALHO ================= */
+.top{position:sticky;top:0;z-index:20;background:var(--bg-glass);
+  -webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);
+  border-bottom:1px solid var(--line);
+  padding:calc(8px + env(safe-area-inset-top)) max(14px,env(safe-area-inset-right)) 0 max(14px,env(safe-area-inset-left))}
+.top .wrap{display:grid;gap:8px}
+.bar{display:flex;align-items:center;gap:10px}
+.brand{display:flex;align-items:center;gap:10px;margin:0;min-width:0;flex:1}
+.brand img{width:36px;height:36px;border-radius:10px;flex:none}
+.brand-t{display:grid;line-height:1}
+.brand-t b{font:800 1.6rem/1 var(--font-display);letter-spacing:.005em}
+.legend{display:flex;gap:8px;font:600 .72rem/1.2 var(--font-ui);margin-top:3px}
+.legend .p{color:var(--pt)} .legend .z{color:var(--zh)} .legend .e{color:var(--en)}
+.bar-actions{display:flex;align-items:center;gap:8px}
+.pill{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 14px;border-radius:999px;
+  border:0;background:var(--chalk);color:var(--on-chalk);font-weight:600;font-size:.88rem}
+.pill[hidden]{display:none}
+.icon-btn{position:relative;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+  background:transparent;display:grid;place-items:center}
+.icon-btn:active{background:var(--raise)}
+.icon-btn .dot{position:absolute;top:9px;right:9px;width:9px;height:9px;border-radius:50%;
+  background:var(--warn);border:2px solid var(--bg);display:none}
+.icon-btn.alert .dot{display:block}
+#net{display:none;align-items:center;gap:6px;font-size:.74rem;font-weight:600;color:var(--dim)}
+#net::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--fav)}
+body.offline #net{display:inline-flex}
+
+.finder{display:flex;gap:8px}
+.search{position:relative;flex:1;min-width:0}
+.search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--dim);pointer-events:none}
+.search input{width:100%;height:46px;padding:0 14px 0 40px;border-radius:14px;border:1px solid var(--line);
+  background:var(--surface);font-size:1rem;appearance:none;-webkit-appearance:none}
+.search input::placeholder{color:var(--dim);opacity:.85}
+.search input::-webkit-search-cancel-button{-webkit-appearance:none}
+.favbtn{flex:none;height:46px;min-width:64px;padding:0 14px;border-radius:14px;border:1px solid var(--line);
+  background:var(--surface);display:flex;align-items:center;justify-content:center;gap:7px;font-weight:600}
+.favbtn svg{color:var(--fav)}
+.favbtn[aria-pressed="true"]{background:var(--fav);border-color:var(--fav);color:#1d1400}
+.favbtn[aria-pressed="true"] svg{color:#1d1400}
+
+nav{display:flex;gap:6px;overflow-x:auto;padding:0 0 10px;margin:0 -14px;padding-left:14px;padding-right:14px;
+  scrollbar-width:none;scroll-snap-type:x proximity}
+nav::-webkit-scrollbar{display:none}
+nav a{flex:none;scroll-snap-align:start;text-decoration:none;color:var(--dim);font-weight:600;font-size:.88rem;
+  padding:7px 13px;border-radius:999px;border:1px solid var(--line);white-space:nowrap}
+nav a[hidden]{display:none}
+nav a.on{background:var(--chalk);border-color:var(--chalk);color:var(--on-chalk)}
+
+/* ================= CONTEÚDO ================= */
+main{padding:6px max(14px,env(safe-area-inset-right)) 0 max(14px,env(safe-area-inset-left))}
+main .wrap{display:block}
+
+/* Divisor de grupo: meio-campo + círculo central, as marcações do gramado */
+.group{display:flex;align-items:center;gap:14px;margin:34px 0 6px}
+.group::before{content:"";flex:none;width:46px;height:46px;border-radius:50%;
+  border:2px solid var(--line-strong);
+  background:radial-gradient(circle,var(--line-strong) 0 3px,transparent 3.5px)}
+.group::after{content:"";flex:1;height:2px;background:var(--line-strong);order:3}
+.group div{order:2;display:grid;gap:2px}
+.group h2{margin:0;font:800 2rem/1 var(--font-display);letter-spacing:.005em}
+.group p{margin:0;font-size:.82rem;color:var(--dim)}
+
+section{margin:18px 0 8px;scroll-margin-top:calc(var(--hh) + 10px)}
+.sec-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.sec-head h3{margin:0;font:600 1.3rem/1.15 var(--font-display);display:flex;align-items:baseline;gap:8px;min-width:0}
+.sec-head .count{font:600 .8rem var(--font-ui);color:var(--dim)}
+.playall{flex:none;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 13px 0 11px;border-radius:999px;
+  border:1px solid var(--go);background:transparent;color:var(--go);font-weight:600;font-size:.82rem}
+.playall:active{background:var(--go);color:var(--on-go)}
+
+.card{position:relative;display:grid;gap:2px;margin:0 0 10px;padding:14px 14px 12px;
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  scroll-margin-top:calc(var(--hh) + 14px);scroll-margin-bottom:120px;
+  transition:border-color .18s,box-shadow .18s}
+.card.playing{border-color:var(--go);box-shadow:0 0 0 1px var(--go),0 10px 30px -14px var(--go)}
+.zh{font:600 1.9rem/1.2 var(--font-zh);padding-right:46px;word-break:keep-all;overflow-wrap:anywhere}
+.py{font:600 1rem/1.3 var(--font-ui);color:var(--zh)}
+.pt,.en{margin:0;font-size:1rem;line-height:1.35}
+.pt{color:var(--pt)} .en{color:var(--en)}
+.pt b,.en b{display:inline-block;width:1.7rem;font:600 .72rem/1 var(--font-ui);letter-spacing:.04em;opacity:.8}
+body.hide-zh .zh,body.hide-py .py,body.hide-pt .pt,body.hide-en .en{display:none}
+
+.star{position:absolute;top:4px;right:4px;width:46px;height:46px;border:0;background:transparent;
+  color:var(--dim);display:grid;place-items:center;border-radius:50%}
+.star svg{fill:none;stroke:currentColor;stroke-width:1.8;transition:transform .15s}
+.star[aria-pressed="true"]{color:var(--fav)}
+.star[aria-pressed="true"] svg{fill:currentColor;transform:scale(1.06)}
+.star:active svg{transform:scale(.85)}
+
+.play{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.lb{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:44px;border-radius:12px;
+  border:1px solid var(--line);background:var(--raise);font-weight:600;font-size:.9rem}
+.lb[data-k="zh"]{color:var(--zh)} .lb[data-k="en"]{color:var(--en)} .lb[data-k="pt"]{color:var(--pt)}
+.lb:active{transform:scale(.97)}
+.lb .ico{display:grid;place-items:center;width:14px;height:14px}
+.lb .eq{display:none;align-items:flex-end;gap:2px;height:14px}
+.lb .eq i{width:3px;height:4px;background:currentColor;border-radius:1px;animation:eq .9s infinite ease-in-out}
+.lb .eq i:nth-child(2){animation-delay:.15s}.lb .eq i:nth-child(3){animation-delay:.3s}
+.lb.on{background:var(--go);border-color:var(--go);color:var(--on-go)}
+.lb.on .tri{display:none}.lb.on .eq{display:flex}
+@keyframes eq{0%,100%{height:4px}50%{height:14px}}
+
+.empty{display:none;text-align:center;padding:40px 12px;color:var(--dim)}
+.empty p{margin:0 0 14px;font-size:1.02rem}
+.empty .pill{margin:0 auto}
+
+footer{padding:26px max(14px,env(safe-area-inset-left)) 10px;color:var(--dim);font-size:.8rem;text-align:center}
+
+/* ================= PARAR / AVISO ================= */
+#stop{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:calc(18px + env(safe-area-inset-bottom));z-index:25;
+  width:58px;height:58px;border-radius:50%;border:0;background:var(--chalk);color:var(--on-chalk);
+  display:none;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+body.speaking #stop{display:grid}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,20px);z-index:40;
+  max-width:min(92vw,420px);display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:14px;
+  background:var(--chalk);color:var(--on-chalk);font-weight:600;font-size:.92rem;
+  opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+#toast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+#toast button{border:0;background:transparent;color:inherit;font-weight:800;text-decoration:underline;padding:4px}
+
+/* ================= AJUSTES (bottom sheet) ================= */
+dialog{border:0;padding:0;width:min(100%,560px);max-width:100%;margin:auto auto 0;max-height:90dvh;overflow:auto;
+  background:var(--surface);color:var(--ink);border-radius:22px 22px 0 0;
+  padding-bottom:env(safe-area-inset-bottom)}
+dialog::backdrop{background:rgba(3,10,6,.62)}
+dialog[open]{animation:sheet .22s ease-out}
+@keyframes sheet{from{transform:translateY(28px);opacity:0}to{transform:none;opacity:1}}
+.sheet{padding:10px 18px 22px}
+.grab{width:42px;height:4px;border-radius:4px;background:var(--line-strong);margin:0 auto 12px}
+.sheet h2{margin:0 0 4px;font:800 1.7rem/1.1 var(--font-display)}
+fieldset{border:0;margin:18px 0 0;padding:0}
+legend{padding:0;margin-bottom:8px;font-weight:600;font-size:.92rem}
+.chips,.seg{display:flex;flex-wrap:wrap;gap:8px}
+.chip{height:40px;padding:0 15px;border-radius:999px;border:1px solid var(--line);background:transparent;font-weight:600}
+.chip[aria-pressed="true"]{background:var(--chalk);border-color:var(--chalk);color:var(--on-chalk)}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.seg button{height:42px;border:0;background:transparent;font-weight:600;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button[aria-checked="true"]{background:var(--chalk);color:var(--on-chalk)}
+select{width:100%;height:46px;border-radius:12px;border:1px solid var(--line);background:var(--raise);padding:0 12px}
+.voices{display:grid;gap:6px;margin:0;padding:0;list-style:none;font-size:.88rem}
+.voices li{display:flex;justify-content:space-between;gap:10px;padding:9px 12px;border-radius:10px;background:var(--raise)}
+.voices span{color:var(--dim);text-align:right}
+.voices .bad span{color:var(--warn)}
+.note{margin:10px 0 0;font-size:.82rem;color:var(--dim)}
+.done{margin-top:20px;width:100%;height:48px;border-radius:14px;border:0;background:var(--chalk);color:var(--on-chalk);font-weight:800;font-size:1rem}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+@media (min-width:700px){
+  .zh{font-size:2.1rem}
+  dialog{margin:auto}
+  dialog{border-radius:22px}
+}
+</style>
+</head>
+<body>
+
+<!-- Ícones SVG reutilizáveis -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-play" viewBox="0 0 14 14"><path d="M3 1.6v10.8L12 7z" fill="currentColor"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.9 6.4.9-4.7 4.5 1.2 6.4L12 17.4 6.3 20.5l1.2-6.4L2.8 9.6l6.4-.9z" stroke-linejoin="round"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></g></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 13.5a7.7 7.7 0 000-3l2-1.5-2-3.4-2.3.9a7.6 7.6 0 00-2.6-1.5L14 2.5h-4l-.5 2.5a7.6 7.6 0 00-2.6 1.5l-2.3-.9-2 3.4 2 1.5a7.7 7.7 0 000 3l-2 1.5 2 3.4 2.3-.9a7.6 7.6 0 002.6 1.5l.5 2.5h4l.5-2.5a7.6 7.6 0 002.6-1.5l2.3.9 2-3.4z"/></g></symbol>
+  <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/></symbol>
+  <symbol id="i-install" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 20h14"/></g></symbol>
+</svg>
+
+<noscript><p style="padding:24px">Este app precisa de JavaScript para funcionar.</p></noscript>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <div class="bar">
+      <h1 class="brand">
+        <img src="icons/favicon.svg" alt="" width="36" height="36">
+        <span class="brand-t">
+          <b>Football Trilíngue</b>
+          <span class="legend"><span class="p">Português</span><span class="z">中文</span><span class="e">English UK</span></span>
+        </span>
+      </h1>
+      <span id="net">Offline</span>
+      <div class="bar-actions">
+        <button class="pill" id="btnInstall" hidden><svg width="16" height="16"><use href="#i-install"/></svg>Instalar</button>
+        <button class="icon-btn" id="btnSettings" aria-label="Ajustes" aria-haspopup="dialog">
+          <svg width="22" height="22"><use href="#i-gear"/></svg><span class="dot"></span>
+        </button>
+      </div>
+    </div>
+    <div class="finder">
+      <label class="search">
+        <span class="sr">Buscar frases</span>
+        <svg width="18" height="18"><use href="#i-search"/></svg>
+        <input type="search" id="q" placeholder="Buscar: passe, pass, 传球…" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
+      </label>
+      <button class="favbtn" id="favOnly" aria-pressed="false" aria-label="Mostrar só favoritos">
+        <svg width="20" height="20" fill="currentColor"><use href="#i-star"/></svg><span id="favCount">0</span>
+      </button>
+    </div>
+    <nav id="nav" aria-label="Seções"></nav>
+  </div>
+</header>
+
+<main><div class="wrap" id="app"></div>
+  <div class="empty wrap" id="empty"></div>
+</main>
+
+<footer>Football Trilíngue · funciona offline · áudio pelas vozes do aparelho</footer>
+
+<button id="stop" aria-label="Parar áudio"><svg width="26" height="26"><use href="#i-stop"/></svg></button>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<dialog id="sheet" aria-labelledby="sheetTitle">
+  <div class="sheet">
+    <div class="grab"></div>
+    <h2 id="sheetTitle">Ajustes</h2>
+
+    <fieldset>
+      <legend>Mostrar nos cartões</legend>
+      <div class="chips">
+        <button class="chip" data-hide="zh" aria-pressed="true">中文</button>
+        <button class="chip" data-hide="py" aria-pressed="true">Pinyin</button>
+        <button class="chip" data-hide="pt" aria-pressed="true">Português</button>
+        <button class="chip" data-hide="en" aria-pressed="true">English</button>
+      </div>
+      <p class="note">Esconda um idioma para treinar de memória e toque nos botões para conferir.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Velocidade da voz</legend>
+      <div class="seg" role="radiogroup" aria-label="Velocidade da voz" id="segSpeed">
+        <button role="radio" data-speed="0.6" aria-checked="false">Lento</button>
+        <button role="radio" data-speed="0.8" aria-checked="true">Normal</button>
+        <button role="radio" data-speed="1" aria-checked="false">Rápido</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>O botão “Tocar seção” reproduz</legend>
+      <select id="mode" aria-label="Idiomas do Tocar seção">
+        <option value="zh">中文</option>
+        <option value="en">English</option>
+        <option value="pt">Português</option>
+        <option value="zh,en">中文 → English</option>
+        <option value="pt,zh,en">Português → 中文 → English</option>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend>Tema</legend>
+      <div class="seg" role="radiogroup" aria-label="Tema" id="segTheme">
+        <button role="radio" data-theme="auto" aria-checked="true">Automático</button>
+        <button role="radio" data-theme="light" aria-checked="false">Claro</button>
+        <button role="radio" data-theme="dark" aria-checked="false">Escuro</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Vozes encontradas</legend>
+      <ul class="voices" id="voices"></ul>
+      <p class="note">Sem internet, só funcionam vozes instaladas no aparelho. No Android: Configurações › Gerenciamento geral › Idioma › Saída de texto para voz. Baixe os pacotes de chinês, inglês (Reino Unido) e português (Brasil).</p>
+    </fieldset>
+
+    <button class="done" id="sheetClose">Pronto</button>
+  </div>
+</dialog>
+
+<script>
+/* =====================================================================
+   DADOS — formato: [中文, pinyin, português, English (UK)]
+   Para incluir termos, basta adicionar linhas nas seções.
+   Itens com "/" ou "(…)" são lidos sem os parênteses; a "/" vira pausa.
+   Os favoritos usam o texto em chinês como chave: não altere o chinês
+   de um item que já foi favoritado (ou ele perde a estrela).
+   ===================================================================== */
+const DATA = [
+
+/* ---------------- VOCABULÁRIO ---------------- */
+{ g:"Vocabulário", id:"pos", titulo:"Posições", itens:[
+  ["守门员","shǒuményuán","Goleiro","Goalkeeper (keeper)"],
+  ["后卫","hòuwèi","Zagueiro / defensor","Defender"],
+  ["中后卫","zhōnghòuwèi","Zagueiro central","Centre-back"],
+  ["边后卫","biānhòuwèi","Lateral","Full-back"],
+  ["后腰","hòuyāo","Volante","Defensive midfielder"],
+  ["中场","zhōngchǎng","Meio-campo / meia","Midfield / midfielder"],
+  ["前腰","qiányāo","Meia armador / camisa 10","Attacking midfielder (number ten)"],
+  ["边锋","biānfēng","Ponta","Winger"],
+  ["前锋","qiánfēng","Atacante","Striker"]
+]},
+{ id:"pes", titulo:"Pessoas e funções", itens:[
+  ["球员","qiúyuán","Jogador","Player"],
+  ["队长","duìzhǎng","Capitão","Captain"],
+  ["教练","jiàoliàn","Técnico","Manager / coach"],
+  ["裁判","cáipàn","Árbitro","Referee (ref)"],
+  ["替补","tìbǔ","Reserva","Substitute (sub)"]
+]},
+{ id:"aco", titulo:"Ações em campo", itens:[
+  ["传球","chuánqiú","Passe","Pass"],
+  ["射门","shèmén","Chute","Shot"],
+  ["进球","jìnqiú","Gol (marcado)","Goal (scored)"],
+  ["球门","qiúmén","Meta / trave","Goal (the posts)"],
+  ["盘带","pándài","Drible","Dribble"],
+  ["头球","tóuqiú","Cabeceio","Header"],
+  ["抢断","qiǎngduàn","Desarme","Tackle"],
+  ["传中","chuánzhōng","Cruzamento","Cross"],
+  ["扑救","pūjiù","Defesa (do goleiro)","Save"],
+  ["角球","jiǎoqiú","Escanteio","Corner"],
+  ["犯规","fànguī","Falta","Foul"],
+  ["点球","diǎnqiú","Pênalti","Penalty"],
+  ["越位","yuèwèi","Impedimento","Offside"],
+  ["黄牌","huángpái","Cartão amarelo","Yellow card"],
+  ["红牌","hóngpái","Cartão vermelho","Red card"]
+]},
+{ id:"tat", titulo:"Tática", itens:[
+  ["阵型","zhènxíng","Formação","Formation"],
+  ["四四二","sì sì èr","4-4-2","Four-four-two"],
+  ["防守","fángshǒu","Defesa","Defence"],
+  ["进攻","jìngōng","Ataque","Attack"],
+  ["反击","fǎnjī","Contra-ataque","Counter-attack"],
+  ["高位逼抢","gāowèi bīqiǎng","Pressão alta","High press"],
+  ["控球","kòngqiú","Posse de bola","Possession"],
+  ["压迫","yāpò","Pressão","Pressing"]
+]},
+{ id:"campo", titulo:"Campo e direções", itens:[
+  ["球场","qiúchǎng","Campo","Pitch"],
+  ["禁区","jìnqū","Grande área","Penalty area (the box)"],
+  ["左边","zuǒbiān","Esquerda","Left"],
+  ["右边","yòubiān","Direita","Right"],
+  ["中路","zhōnglù","Meio / pelo centro","Centre / through the middle"],
+  ["边路","biānlù","Lado do campo / corredor","Wing / flank"],
+  ["前场","qiánchǎng","Campo de ataque","Attacking half"],
+  ["后场","hòuchǎng","Campo de defesa","Own half"],
+  ["中线","zhōngxiàn","Linha do meio-campo","Halfway line"],
+  ["底线","dǐxiàn","Linha de fundo","Byline / goal line"],
+  ["边线","biānxiàn","Linha lateral","Touchline"],
+  ["门前","ménqián","Em frente ao gol","In front of goal"],
+  ["空档","kòngdàng","Espaço livre","Space / gap"]
+]},
+{ id:"equip", titulo:"Equipamento", itens:[
+  ["足球","zúqiú","Bola / futebol","Football"],
+  ["球衣","qiúyī","Camisa / uniforme","Shirt / kit"],
+  ["足球鞋","zúqiúxié","Chuteira","Football boots"],
+  ["护腿板","hùtuǐbǎn","Caneleira","Shin pads"],
+  ["守门员手套","shǒuményuán shǒutào","Luvas de goleiro","Goalkeeper gloves"],
+  ["球袜","qiúwà","Meiões","Socks"],
+  ["球网","qiúwǎng","Rede","Net"],
+  ["哨子","shàozi","Apito","Whistle"]
+]},
+{ id:"partida", titulo:"Partida e tempo", itens:[
+  ["开球","kāiqiú","Pontapé inicial","Kick-off"],
+  ["上半场","shàngbànchǎng","Primeiro tempo","First half"],
+  ["下半场","xiàbànchǎng","Segundo tempo","Second half"],
+  ["中场休息","zhōngchǎng xiūxi","Intervalo","Half-time"],
+  ["补时","bǔshí","Acréscimos","Stoppage time"],
+  ["加时赛","jiāshísài","Prorrogação","Extra time"],
+  ["点球大战","diǎnqiú dàzhàn","Disputa de pênaltis","Penalty shootout"],
+  ["终场哨声","zhōngchǎng shàoshēng","Apito final","Full-time whistle"],
+  ["任意球","rènyìqiú","Tiro livre / falta","Free kick"],
+  ["界外球","jièwàiqiú","Lateral (arremesso)","Throw-in"],
+  ["球门球","qiúményqiú","Tiro de meta","Goal kick"],
+  ["比分","bǐfēn","Placar","Score"],
+  ["平局","píngjú","Empate","Draw"],
+  ["赢了","yíng le","Ganhou / vencemos","Won"],
+  ["输了","shū le","Perdeu / perdemos","Lost"]
+]},
+
+/* ---------------- FRASES (da mais para a menos importante) ---------------- */
+{ g:"Frases do jogador — da mais para a menos importante", id:"f1", titulo:"① Essenciais em campo (críticas)", itens:[
+  ["我的球!","Wǒ de qiú!","É minha! (evita choque)","Mine!"],
+  ["后面有人!","Hòumiàn yǒu rén!","Tem marcação nas suas costas!","Man on!"],
+  ["传给我!","Chuán gěi wǒ!","Passa pra mim!","Pass it to me! / Give it here!"],
+  ["没人盯我!","Méi rén dīng wǒ!","Estou livre!","I'm free! / Unmarked!"],
+  ["你有时间!","Nǐ yǒu shíjiān!","Você tem tempo! (ninguém na marcação)","You've got time!"],
+  ["补位!","Bǔwèi!","Cobre!","Cover!"],
+  ["盯人!","Dīng rén!","Marca o homem!","Pick him up! / Mark up!"],
+  ["回防!","Huífáng!","Volta pra defender!","Get back! / Track back!"],
+  ["解围!","Jiěwéi!","Afasta! (rebate pra longe)","Clear it!"],
+  ["射门!","Shèmén!","Chuta!","Shoot!"],
+  ["小心!","Xiǎoxīn!","Cuidado!","Careful! / Watch out!"],
+  ["我来!","Wǒ lái!","Deixa comigo!","I've got it!"],
+  ["让过去!","Ràng guòqù!","Deixa passar!","Leave it! / Let it run!"],
+  ["转身!","Zhuǎnshēn!","Gira! (vira com a bola)","Turn!"],
+  ["跟上!","Gēn shàng!","Acompanha!","Stay with him! / Get tight!"],
+  ["抢第二落点!","Qiǎng dì'èr luòdiǎn!","Vai na segunda bola!","Second ball!"],
+  ["补射!","Bǔshè!","Aproveita o rebote!","Follow it up!"],
+  ["上!","Shàng!","Sobe! / Vai!","Get up there!"]
+]},
+{ id:"f2", titulo:"② Coordenação tática", itens:[
+  ["保持阵型!","Bǎochí zhènxíng!","Mantém a formação!","Keep your shape!"],
+  ["注意越位!","Zhùyì yuèwèi!","Atenção ao impedimento!","Watch the offside!"],
+  ["压上!","Yā shàng!","Sobe a linha! / Avança em bloco!","Push up!"],
+  ["收缩!","Shōusuō!","Fecha! (compacta o time)","Squeeze in! / Tighten up!"],
+  ["逼抢!","Bīqiǎng!","Pressiona!","Press!"],
+  ["换边!","Huàn biān!","Inverte o jogo!","Switch it!"],
+  ["传脚下!","Chuán jiǎoxià!","Passa no pé!","To feet!"],
+  ["传身后!","Chuán shēnhòu!","Passa nas costas da defesa!","Play it in behind!"],
+  ["回传!","Huíchuán!","Devolve! (passe de volta)","Play it back!"],
+  ["一脚出球!","Yī jiǎo chū qiú!","De primeira!","First time! / One-touch!"],
+  ["二过一!","Èr guò yī!","Tabela! (um-dois)","One-two!"],
+  ["拉开!","Lākāi!","Abre! (dá amplitude)","Stretch it! / Spread out!"],
+  ["内切!","Nèiqiè!","Corta pra dentro!","Cut inside!"],
+  ["下底!","Xiàdǐ!","Vai à linha de fundo!","Get to the byline!"],
+  ["停球!","Tíng qiú!","Domina!","Take it down! / Control it!"],
+  ["稳住!","Wěnzhù!","Calma! / Segura!","Steady! / Calm down!"],
+  ["快点!","Kuài diǎn!","Rápido!","Hurry up! / Quick!"],
+  ["谁盯人?","Shéi dīng rén?","Quem marca quem?","Who's picking up who?"]
+]},
+{ id:"f3", titulo:"③ Defesa e marcação", itens:[
+  ["盯住十号!","Dīngzhù shí hào!","Marca o 10!","Pick up number ten!"],
+  ["换人盯!","Huàn rén dīng!","Troca de marcação!","Switch!"],
+  ["别让他转身!","Bié ràng tā zhuǎnshēn!","Não deixa ele virar!","Don't let him turn!"],
+  ["逼他走边路!","Bī tā zǒu biānlù!","Empurra ele pro lado!","Show him wide!"],
+  ["别乱抢!","Bié luàn qiǎng!","Não entra de qualquer jeito!","Don't dive in!"],
+  ["守住中路!","Shǒuzhù zhōnglù!","Fecha o meio!","Protect the middle!"],
+  ["往回退!","Wǎng huí tuì!","Recua!","Drop back!"],
+  ["站好位置!","Zhàn hǎo wèizhì!","Posiciona direito!","Get into position!"],
+  ["盯住高个子!","Dīngzhù gāogèzi!","Marca o mais alto!","Pick up the tall one!"]
+]},
+{ id:"f4", titulo:"④ Ataque e construção", itens:[
+  ["往前传!","Wǎng qián chuán!","Toca pra frente!","Play it forward!"],
+  ["直塞!","Zhísāi!","Enfia a bola! (passe em profundidade)","Through ball!"],
+  ["传中!","Chuánzhōng!","Cruza!","Cross it!"],
+  ["远射!","Yuǎnshè!","Chuta de longe!","Have a go! (shoot from distance)"],
+  ["保持控球!","Bǎochí kòngqiú!","Mantém a posse!","Keep the ball!"],
+  ["慢慢来!","Mànmàn lái!","Sem pressa!","Take your time!"],
+  ["过掉他!","Guòdiào tā!","Passa por ele!","Take him on!"],
+  ["带球!","Dàiqiú!","Conduz! (vai com a bola)","Run with it!"],
+  ["别带了,传!","Bié dài le, chuán!","Chega de driblar, passa!","Stop dribbling, pass it!"],
+  ["有空档!","Yǒu kòngdàng!","Tem espaço!","There's space!"],
+  ["打反击!","Dǎ fǎnjī!","Contra-ataque!","On the break!"]
+]},
+{ id:"f5", titulo:"⑤ Bola parada", itens:[
+  ["我们的角球!","Wǒmen de jiǎoqiú!","Nosso escanteio!","Our corner!"],
+  ["近门柱!","Jìn ménzhù!","Primeiro pau!","Near post!"],
+  ["远门柱!","Yuǎn ménzhù!","Segundo pau!","Far post!"],
+  ["排人墙!","Pái rénqiáng!","Forma a barreira!","Make a wall!"],
+  ["我来罚!","Wǒ lái fá!","Eu cobro!","I'll take it!"],
+  ["谁罚点球?","Shéi fá diǎnqiú?","Quem bate o pênalti?","Who's taking the penalty?"],
+  ["快发界外球!","Kuài fā jièwàiqiú!","Cobra o lateral rápido!","Quick throw!"],
+  ["我们的界外球!","Wǒmen de jièwàiqiú!","O lateral é nosso!","Our throw-in!"]
+]},
+{ id:"f6", titulo:"⑥ Goleiro (comunicação)", itens:[
+  ["门将的球!","Ménjiàng de qiú!","Bola do goleiro!","Keeper's!"],
+  ["我出来了!","Wǒ chūlái le!","Estou saindo!","I'm coming!"],
+  ["别出来!","Bié chūlái!","Fica aí! (não sai)","Stay there!"],
+  ["守好近门柱!","Shǒuhǎo jìn ménzhù!","Cobre o primeiro pau!","Cover the near post!"],
+  ["回传给门将!","Huíchuán gěi ménjiàng!","Recua pro goleiro!","Play it back to the keeper!"]
+]},
+{ id:"f7", titulo:"⑦ Árbitro e incidentes", itens:[
+  ["裁判,他犯规了!","Cáipàn, tā fànguī le!","Juiz, foi falta!","Ref, that's a foul!"],
+  ["手球!","Shǒuqiú!","Mão na bola!","Handball!"],
+  ["越位了吗?","Yuèwèi le ma?","Foi impedimento?","Was that offside?"],
+  ["球出界了!","Qiú chūjiè le!","A bola saiu!","Ball's out!"],
+  ["我受伤了!","Wǒ shòushāng le!","Me machuquei!","I'm injured! / I'm hurt!"],
+  ["请叫队医!","Qǐng jiào duìyī!","Chama o médico!","Get the physio!"],
+  ["我需要换人。","Wǒ xūyào huànrén.","Preciso ser substituído.","I need to come off."]
+]},
+{ id:"f8", titulo:"⑧ Espírito de equipe", itens:[
+  ["加油!","Jiāyóu!","Força! / Bora!","Come on!"],
+  ["干得好!","Gàn de hǎo!","Bem feito!","Well done!"],
+  ["打得漂亮!","Dǎ de piàoliang!","Jogou bonito!","Well played!"],
+  ["别放弃!","Bié fàngqì!","Não desiste!","Don't give up!"],
+  ["对不起!","Duìbuqǐ!","Desculpa!","Sorry!"],
+  ["是我的错。","Shì wǒ de cuò.","Foi culpa minha.","My fault."],
+  ["没关系!","Méi guānxi!","Sem problema!","No worries!"],
+  ["谢谢!","Xièxie!","Valeu!","Cheers! / Thanks!"]
+]},
+{ id:"f9", titulo:"⑨ Apresentação e treino", itens:[
+  ["我可以加入吗?","Wǒ kěyǐ jiārù ma?","Posso entrar no jogo?","Can I join in?"],
+  ["我是新来的。","Wǒ shì xīn lái de.","Sou novo aqui.","I'm new here."],
+  ["我踢中后卫。","Wǒ tī zhōnghòuwèi.","Jogo de zagueiro.","I play centre-back."],
+  ["我惯用右脚。","Wǒ guànyòng yòu jiǎo.","Sou destro.","I'm right-footed."],
+  ["几点训练?","Jǐ diǎn xùnliàn?","Que horas é o treino?","What time is training?"],
+  ["我需要热身。","Wǒ xūyào rèshēn.","Preciso aquecer.","I need to warm up."],
+  ["哪里有水?","Nǎlǐ yǒu shuǐ?","Onde tem água?","Where can I get some water?"]
+]},
+{ id:"f10", titulo:"⑩ Organizando o jogo e conhecendo gente", itens:[
+  ["你会说英语吗?","Nǐ huì shuō Yīngyǔ ma?","Você fala inglês?","Do you speak English?"],
+  ["请说慢一点。","Qǐng shuō màn yīdiǎn.","Fala mais devagar, por favor.","Could you speak slower, please?"],
+  ["请再说一遍。","Qǐng zài shuō yī biàn.","Pode repetir, por favor?","Could you say that again?"],
+  ["我的中文不太好。","Wǒ de Zhōngwén bù tài hǎo.","Meu chinês não é muito bom.","My Chinese isn't great."],
+  ["你叫什么名字?","Nǐ jiào shénme míngzi?","Qual é o seu nome?","What's your name?"],
+  ["你从哪里来?","Nǐ cóng nǎlǐ lái?","De onde você é?","Where are you from?"],
+  ["我来自巴西。","Wǒ láizì Bāxī.","Sou do Brasil.","I'm from Brazil."],
+  ["很高兴认识你。","Hěn gāoxìng rènshi nǐ.","Prazer em conhecer você.","Nice to meet you."],
+  ["我们分成两队吧。","Wǒmen fēnchéng liǎng duì ba.","Vamos dividir em dois times.","Let's split into two teams."],
+  ["你在哪一队?","Nǐ zài nǎ yī duì?","Em qual time você está?","Which team are you on?"],
+  ["几个人一队?","Jǐ gè rén yī duì?","Quantos por time?","How many a side?"],
+  ["先进五球的赢。","Xiān jìn wǔ qiú de yíng.","Quem fizer cinco gols primeiro ganha.","First to five wins."],
+  ["再踢一场吧?","Zài tī yī chǎng ba?","Mais uma partida?","Fancy another game?"],
+  ["今天踢得很开心。","Jīntiān tī de hěn kāixīn.","Me diverti muito hoje.","I really enjoyed that."],
+  ["明天还踢吗?","Míngtiān hái tī ma?","Vai ter jogo amanhã?","Are you playing tomorrow?"],
+  ["下次见!","Xiàcì jiàn!","Até a próxima!","See you next time!"]
+]},
+{ id:"nar", titulo:"Narração e placar", itens:[
+  ["球进了!","Qiú jìn le!","Gol!","Goal!"],
+  ["好球!","Hǎo qiú!","Belo lance!","Great ball! / Nice one!"],
+  ["二比一","èr bǐ yī","Dois a um (placar)","Two-one"]
+]}
+];
+
+/* =====================================================================
+   UTILIDADES E PREFERÊNCIAS (salvas no aparelho)
+   ===================================================================== */
+const $  = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+function save(k,v){ try{ localStorage.setItem("fb3_"+k,v); }catch(e){} }
+function load(k,d){ try{ const v=localStorage.getItem("fb3_"+k); return v===null?d:v; }catch(e){ return d; } }
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const params = new URLSearchParams(location.search);
+
+let toastTimer;
+function toast(msg, actionLabel, onAction){
+  const t = $("#toast");
+  t.innerHTML = "";
+  const s = document.createElement("span"); s.textContent = msg; t.appendChild(s);
+  if(actionLabel){
+    const b = document.createElement("button"); b.textContent = actionLabel;
+    b.onclick = () => { t.classList.remove("show"); onAction && onAction(); };
+    t.appendChild(b);
+  }
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), actionLabel ? 9000 : 4200);
+}
+
+/* =====================================================================
+   ÁUDIO — Web Speech API (voz do aparelho)
+   ===================================================================== */
+const synth = window.speechSynthesis;
+const L = { pt:{code:"pt-BR",i:2,nome:"Português (BR)"}, zh:{code:"zh-CN",i:0,nome:"中文 (zh-CN)"}, en:{code:"en-GB",i:3,nome:"English (UK)"} };
+const voices = {};
+let runId = 0;                                   // cada comando novo invalida filas antigas
+let rate = parseFloat(load("speed","0.8")) || 0.8;
+
+// Remove parênteses (explicações) e troca "/" por pausa antes de falar
+function clean(t){
+  return t.replace(/\s*\([^)]*\)/g,"").replace(/\s*\/\s*/g,". ").replace(/\s+/g," ").trim();
+}
+
+function pickVoices(){
+  if(!synth) return;
+  const vs = synth.getVoices();
+  const lang = v => v.lang.replace("_","-");
+  // melhor voz: exata > mesmo idioma; entre iguais, prefere a instalada no aparelho (funciona offline)
+  const best = (exact, prefix, nameRe) => {
+    const pool = [ vs.filter(v => exact.test(lang(v))),
+                   vs.filter(v => prefix.test(lang(v))),
+                   nameRe ? vs.filter(v => nameRe.test(v.name)) : [] ].find(a => a.length) || [];
+    return pool.find(v => v.localService) || pool[0] || null;
+  };
+  voices.pt = best(/^pt-BR$/i, /^pt/i);
+  voices.zh = best(/^zh-CN$/i, /^zh|^cmn/i, /chin|mandarin/i);
+  voices.en = best(/^en-GB$/i, /^en/i);
+  renderVoices(vs.length);
+}
+
+function renderVoices(total){
+  const ul = $("#voices"); ul.innerHTML = "";
+  let falta = false;
+  Object.keys(L).forEach(k => {
+    const v = voices[k], li = document.createElement("li");
+    const nome = document.createElement("b"); nome.textContent = L[k].nome; nome.style.fontWeight = 600;
+    const st = document.createElement("span");
+    if(!total){ st.textContent = "carregando…"; }
+    else if(!v){ li.className = "bad"; st.textContent = "não encontrada"; falta = true; }
+    else {
+      const exata = v.lang.replace("_","-").toLowerCase() === L[k].code.toLowerCase();
+      st.textContent = v.name + (exata ? "" : " (variante)") + (v.localService ? " · local" : " · online");
+    }
+    li.append(nome, st); ul.appendChild(li);
+  });
+  $("#btnSettings").classList.toggle("alert", falta && total > 0);
+}
+
+if(synth){ pickVoices(); synth.onvoiceschanged = pickVoices; }
+else { $("#voices").innerHTML = '<li class="bad"><b>Áudio</b><span>este navegador não tem síntese de voz</span></li>'; }
+
+function unmark(){
+  $$(".card.playing").forEach(e => e.classList.remove("playing"));
+  $$(".lb.on").forEach(b => b.classList.remove("on"));
+  document.body.classList.remove("speaking");
+}
+function mark(el,key){
+  unmark();
+  el.classList.add("playing");
+  const b = el.querySelector(`.lb[data-k="${key}"]`);
+  if(b) b.classList.add("on");
+  document.body.classList.add("speaking");
+}
+
+// Fala o idioma `key` do cartão `el`; resolve quando termina
+function speak(key, el){
+  return new Promise(res => {
+    if(!synth){ res(); return; }
+    const u = new SpeechSynthesisUtterance(clean(el._d[L[key].i]));
+    u.lang = L[key].code;
+    if(voices[key]) u.voice = voices[key];
+    u.rate = rate;
+    mark(el,key);
+    let t, done = false;
+    const fin = () => { if(done) return; done = true; clearTimeout(t); res(); };
+    t = setTimeout(fin, 15000);                  // segurança: alguns Androids não disparam onend
+    u.onend = u.onerror = fin;
+    synth.speak(u);
+  });
+}
+
+function stopAll(){ runId++; if(synth) synth.cancel(); unmark(); }
+
+async function playOne(el,key){
+  if(!synth){ toast("Este navegador não tem síntese de voz."); return; }
+  const my = ++runId;
+  synth.cancel();
+  await sleep(40);                               // evita bug de cancel+speak no Chrome Android
+  await speak(key, el);
+  if(my === runId) unmark();
+}
+
+async function playSection(id){
+  if(!synth){ toast("Este navegador não tem síntese de voz."); return; }
+  const my = ++runId;
+  synth.cancel();
+  await sleep(60);
+  const modo = $("#mode").value.split(",");
+  const els = $$(`#${id} .card`).filter(e => e.style.display !== "none");
+  for(const el of els){
+    if(my !== runId) return;
+    el.scrollIntoView({block:"center", behavior: reduceMotion ? "auto" : "smooth"});
+    for(const k of modo){
+      if(my !== runId) return;
+      await speak(k, el);
+      await sleep(250);
+    }
+    await sleep(350);
+  }
+  if(my === runId) unmark();
+}
+
+/* =====================================================================
+   RENDER
+   ===================================================================== */
+const norm2 = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+const svgUse = (id,w) => `<svg width="${w}" height="${w}"><use href="#${id}"/></svg>`;
+
+function render(){
+  const app = $("#app"), nav = $("#nav");
+  app.innerHTML = ""; nav.innerHTML = "";
+  DATA.forEach(cat => {
+    if(cat.g){
+      const [titulo, sub] = cat.g.split(" — ");
+      const g = document.createElement("div");
+      g.className = "group";
+      g.innerHTML = `<div><h2>${titulo}</h2>${sub ? `<p>${sub[0].toUpperCase()+sub.slice(1)}</p>` : ""}</div>`;
+      app.appendChild(g);
+    }
+    const curto = cat.titulo.replace(/\s*\([^)]*\)/g,"");
+    nav.insertAdjacentHTML("beforeend", `<a href="#${cat.id}" data-id="${cat.id}">${curto}</a>`);
+
+    const sec = document.createElement("section");
+    sec.id = cat.id;
+    sec.innerHTML = `<div class="sec-head"><h3>${cat.titulo}<span class="count">${cat.itens.length}</span></h3>
+      <button class="playall" data-sec="${cat.id}">${svgUse("i-play",12)}Tocar seção</button></div>`;
+
+    cat.itens.forEach(d => {
+      const [zh,py,pt,en] = d;
+      const el = document.createElement("article");
+      el.className = "card";
+      el._d = d;
+      el.dataset.busca = norm2([zh,py,pt,en].join(" "));
+      const botao = (k,rot) => `<button class="lb" data-k="${k}" aria-label="Ouvir em ${rot}">
+        <span class="ico"><span class="tri">${svgUse("i-play",12)}</span><span class="eq"><i></i><i></i><i></i></span></span>${rot}</button>`;
+      el.innerHTML = `
+        <button class="star" aria-pressed="false" aria-label="Favoritar">${svgUse("i-star",24)}</button>
+        <div class="zh" lang="zh-CN">${zh}</div>
+        <div class="py">${py}</div>
+        <p class="pt"><b>PT</b>${pt}</p>
+        <p class="en"><b>EN</b>${en}</p>
+        <div class="play">${botao("zh","中文")}${botao("en","English")}${botao("pt","Português")}</div>`;
+      el.querySelectorAll(".lb").forEach(b => b.onclick = () => playOne(el, b.dataset.k));
+      el.querySelector(".star").onclick = () => toggleFav(el);
+      sec.appendChild(el);
+    });
+    app.appendChild(sec);
+  });
+  $$(".playall").forEach(b => b.onclick = () => playSection(b.dataset.sec));
+}
+render();
+
+/* =====================================================================
+   FAVORITOS + BUSCA (filtro único)
+   Chave do favorito = texto em chinês do item.
+   ===================================================================== */
+let favs = new Set();
+try{ favs = new Set(JSON.parse(load("fav","[]"))); }catch(e){}
+let soFavs = params.get("fav") === "1" ? true : load("favOnly","0") === "1";
+
+function applyFilter(){
+  const raw = $("#q").value.trim();
+  const t = norm2(raw);
+  let total = 0, grupo = null, grupoVis = 0;
+  const fechaGrupo = () => { if(grupo) grupo.style.display = grupoVis ? "" : "none"; };
+
+  [...$("#app").children].forEach(node => {
+    if(node.classList.contains("group")){ fechaGrupo(); grupo = node; grupoVis = 0; return; }
+    let vis = 0;
+    node.querySelectorAll(".card").forEach(it => {
+      const ok = (!t || it.dataset.busca.includes(t)) && (!soFavs || favs.has(it._d[0]));
+      it.style.display = ok ? "" : "none";
+      if(ok) vis++;
+    });
+    node.style.display = vis ? "" : "none";
+    node.querySelector(".count").textContent = vis;
+    const link = $(`nav a[data-id="${node.id}"]`);
+    if(link) link.hidden = !vis;
+    grupoVis += vis; total += vis;
+  });
+  fechaGrupo();
+
+  const e = $("#empty");
+  e.style.display = total ? "none" : "block";
+  if(!total){
+    if(soFavs && !favs.size){
+      e.innerHTML = `<p>Você ainda não tem favoritos. Toque na estrela de uma frase para guardá-la aqui.</p>`;
+      e.insertAdjacentHTML("beforeend", `<button class="pill" id="emptyBtn">Ver todas as frases</button>`);
+      $("#emptyBtn").onclick = () => setSoFavs(false);
+    } else {
+      e.innerHTML = `<p>Nada encontrado${raw ? ` para “${raw.replace(/</g,"&lt;")}”` : ""}. Tente outra palavra, em qualquer idioma.</p>`;
+      e.insertAdjacentHTML("beforeend", `<button class="pill" id="emptyBtn">Limpar busca${soFavs ? " e filtro" : ""}</button>`);
+      $("#emptyBtn").onclick = () => { $("#q").value = ""; if(soFavs) setSoFavs(false); else applyFilter(); };
+    }
+  }
+}
+
+function paintFav(el){
+  const on = favs.has(el._d[0]);
+  const s = el.querySelector(".star");
+  s.setAttribute("aria-pressed", on);
+  s.setAttribute("aria-label", on ? "Remover dos favoritos" : "Favoritar");
+}
+function updateFavUI(){
+  $("#favCount").textContent = favs.size;
+  const b = $("#favOnly");
+  b.setAttribute("aria-pressed", soFavs);
+  b.setAttribute("aria-label", soFavs ? "Mostrar todas as frases" : "Mostrar só favoritos");
+}
+function setSoFavs(v){
+  soFavs = v; save("favOnly", v ? "1" : "0");
+  updateFavUI(); applyFilter();
+  window.scrollTo({top:0, behavior: reduceMotion ? "auto" : "smooth"});
+}
+function toggleFav(el){
+  const k = el._d[0];
+  favs.has(k) ? favs.delete(k) : favs.add(k);
+  save("fav", JSON.stringify([...favs]));
+  paintFav(el); updateFavUI();
+  if(soFavs) applyFilter();                      // some da lista na hora ao desfavoritar
+}
+
+$$(".card").forEach(paintFav);
+$("#favOnly").onclick = () => setSoFavs(!soFavs);
+$("#q").addEventListener("input", applyFilter);
+updateFavUI();
+applyFilter();
+
+/* =====================================================================
+   NAVEGAÇÃO: seção ativa + altura do cabeçalho
+   ===================================================================== */
+const topEl = $("#top");
+new ResizeObserver(() => document.documentElement.style.setProperty("--hh", topEl.offsetHeight + "px")).observe(topEl);
+
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(!en.isIntersecting) return;
+    $$("nav a").forEach(a => a.classList.toggle("on", a.dataset.id === en.target.id));
+    const on = $("nav a.on");
+    if(on) on.scrollIntoView({inline:"center", block:"nearest", behavior: reduceMotion ? "auto" : "smooth"});
+  });
+}, { rootMargin:"-28% 0px -66% 0px" });
+$$("section").forEach(s => spy.observe(s));
+
+$("#nav").addEventListener("click", e => {
+  const a = e.target.closest("a"); if(!a) return;
+  e.preventDefault();
+  document.getElementById(a.dataset.id).scrollIntoView({behavior: reduceMotion ? "auto" : "smooth"});
+});
+
+const go = params.get("go") || location.hash.slice(1);
+if(go && document.getElementById(go)) setTimeout(() => document.getElementById(go).scrollIntoView(), 80);
+
+/* =====================================================================
+   AJUSTES
+   ===================================================================== */
+const sheet = $("#sheet");
+$("#btnSettings").onclick = () => sheet.showModal ? sheet.showModal() : sheet.setAttribute("open","");
+$("#sheetClose").onclick  = () => sheet.close ? sheet.close() : sheet.removeAttribute("open");
+sheet.addEventListener("click", e => { if(e.target === sheet) sheet.close(); });   // toque fora fecha
+
+// Mostrar / esconder idiomas nos cartões
+let escondidos = [];
+try{ escondidos = JSON.parse(load("hide","[]")); }catch(e){}
+$$(".chip[data-hide]").forEach(c => {
+  const k = c.dataset.hide;
+  const aplicar = () => {
+    const off = escondidos.includes(k);
+    c.setAttribute("aria-pressed", !off);
+    document.body.classList.toggle("hide-"+k, off);
+  };
+  aplicar();
+  c.onclick = () => {
+    escondidos = escondidos.includes(k) ? escondidos.filter(x => x!==k) : [...escondidos, k];
+    save("hide", JSON.stringify(escondidos));
+    aplicar();
+  };
+});
+
+// Velocidade
+function paintSpeed(){ $$("#segSpeed button").forEach(b => b.setAttribute("aria-checked", parseFloat(b.dataset.speed) === rate)); }
+$$("#segSpeed button").forEach(b => b.onclick = () => { rate = parseFloat(b.dataset.speed); save("speed", rate); paintSpeed(); });
+paintSpeed();
+
+// Modo do "Tocar seção"
+$("#mode").value = load("mode","zh,en");
+$("#mode").onchange = e => save("mode", e.target.value);
+
+// Tema
+const themeColor = $("#themeColor");
+function applyTheme(t){
+  document.documentElement.dataset.theme = t;
+  const dark = t === "dark" || (t === "auto" && !matchMedia("(prefers-color-scheme: light)").matches);
+  themeColor.content = dark ? "#0b1d13" : "#eef2e6";
+  $$("#segTheme button").forEach(b => b.setAttribute("aria-checked", b.dataset.theme === t));
+}
+$$("#segTheme button").forEach(b => b.onclick = () => { save("theme", b.dataset.theme); applyTheme(b.dataset.theme); });
+matchMedia("(prefers-color-scheme: light)").addEventListener?.("change", () => applyTheme(load("theme","auto")));
+applyTheme(load("theme","auto"));
+
+$("#stop").onclick = stopAll;
+
+/* =====================================================================
+   PWA: instalar, offline, atualização
+   ===================================================================== */
+const standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+let promptInstalar = null;
+
+window.addEventListener("beforeinstallprompt", e => {
+  e.preventDefault();
+  promptInstalar = e;
+  if(!standalone) $("#btnInstall").hidden = false;
+});
+$("#btnInstall").onclick = async () => {
+  if(!promptInstalar) return;
+  promptInstalar.prompt();
+  await promptInstalar.userChoice;
+  promptInstalar = null;
+  $("#btnInstall").hidden = true;
+};
+window.addEventListener("appinstalled", () => { $("#btnInstall").hidden = true; toast("App instalado. Abra pelo ícone na tela inicial."); });
+
+// iPhone/iPad não têm botão de instalar: explica uma única vez
+if(/iphone|ipad|ipod/i.test(navigator.userAgent) && !standalone && !load("iosHint","")){
+  setTimeout(() => { toast("Para instalar: toque em Compartilhar e depois em Adicionar à Tela de Início."); save("iosHint","1"); }, 2500);
+}
+
+// Aviso de conexão (o app funciona igual offline; o aviso só diz o que esperar do áudio)
+function net(){ document.body.classList.toggle("offline", !navigator.onLine); }
+addEventListener("online", net); addEventListener("offline", net); net();
+
+// Service worker + armazenamento persistente (protege favoritos e cache)
+if("serviceWorker" in navigator){
+  addEventListener("load", async () => {
+    try{
+      const tinhaControle = !!navigator.serviceWorker.controller;
+      const reg = await navigator.serviceWorker.register("sw.js");
+      reg.addEventListener("updatefound", () => {
+        const w = reg.installing; if(!w) return;
+        w.addEventListener("statechange", () => {
+          if(w.state === "activated") toast(tinhaControle ? "App atualizado." : "Pronto para usar offline.");
+        });
+      });
+    }catch(e){ /* sem HTTPS ou arquivo local: o app funciona, só não fica offline */ }
+  });
+}
+if(navigator.storage && navigator.storage.persist) navigator.storage.persist();
+</script>
+</body>
+</html>

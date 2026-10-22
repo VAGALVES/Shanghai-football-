@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="75%">
+      <stop offset="0" stop-color="#25794c"/>
+      <stop offset=".55" stop-color="#12311f"/>
+      <stop offset="1" stop-color="#091410"/>
+    </radialGradient>
+    <radialGradient id="ballg" cx="38%" cy="32%" r="80%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".65" stop-color="#e9efeb"/>
+      <stop offset="1" stop-color="#b7c6bd"/>
+    </radialGradient>
+    <clipPath id="clip"><circle cx="0" cy="0" r="161.28"/></clipPath>
+    <filter id="sh" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="10.24" stdDeviation="12.80" flood-color="#000" flood-opacity=".55"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112.64" fill="url(#bg)"/>
+  
+    <g stroke="#3ddc84" stroke-opacity=".22" fill="none" stroke-width="6.14">
+      <circle cx="256.0" cy="256.0" r="204.80"/>
+      <line x1="0" y1="256.0" x2="512" y2="256.0"/>
+    </g>
+  <circle cx="256.0" cy="256.0" r="173.38" fill="none" stroke="#ffd54a" stroke-opacity=".9" stroke-width="7.17"/>
+  <g transform="translate(256.0,256.0)">
+    <circle r="161.28" fill="url(#ballg)" filter="url(#sh)"/>
+    <g clip-path="url(#clip)">
+<g stroke="#0d1a13" stroke-width="5.64" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".9">
+<line x1="0.00" y1="-58.06" x2="0.00" y2="-100.80"/>
+<line x1="55.22" y1="-17.94" x2="95.87" y2="-31.15"/>
+<line x1="34.13" y1="46.97" x2="59.25" y2="81.55"/>
+<line x1="-34.13" y1="46.97" x2="-59.25" y2="81.55"/>
+<line x1="-55.22" y1="-17.94" x2="-95.87" y2="-31.15"/>
+<line x1="55.22" y1="-140.92" x2="116.96" y2="-96.06"/>
+<line x1="151.09" y1="8.97" x2="127.50" y2="81.55"/>
+<line x1="38.16" y1="146.46" x2="-38.16" y2="146.46"/>
+<line x1="-127.50" y1="81.55" x2="-151.09" y2="8.97"/>
+<line x1="-116.96" y1="-96.06" x2="-55.22" y2="-140.92"/>
+</g>
+<g fill="#0d1a13" stroke="#0d1a13" stroke-width="3.39" stroke-linejoin="round">
+<polygon points="0.00,-58.06 55.22,-17.94 34.13,46.97 -34.13,46.97 -55.22,-17.94"/>
+<polygon points="0.00,-100.80 -55.22,-140.92 -34.13,-205.83 34.13,-205.83 55.22,-140.92"/>
+<polygon points="95.87,-31.15 116.96,-96.06 185.21,-96.06 206.30,-31.15 151.09,8.97"/>
+<polygon points="59.25,81.55 127.50,81.55 148.60,146.46 93.38,186.58 38.16,146.46"/>
+<polygon points="-59.25,81.55 -38.16,146.46 -93.38,186.58 -148.60,146.46 -127.50,81.55"/>
+<polygon points="-95.87,-31.15 -151.09,8.97 -206.30,-31.15 -185.21,-96.06 -116.96,-96.06"/>
+</g>
+    </g>
+    <circle r="161.28" fill="none" stroke="#0d1a13" stroke-opacity=".35" stroke-width="4.84"/>
+  </g>
+</svg>
